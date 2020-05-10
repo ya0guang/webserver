@@ -8,4 +8,6 @@ RUN cd /home/ && chmod +777 sgx-init && chmod +777 config.json
 
 WORKDIR /home/
 
-ENTRYPOINT ["./sgx-init"]
+RUN ./sgx-init
+
+#ENTRYPOINT ["./sgx-init"]
