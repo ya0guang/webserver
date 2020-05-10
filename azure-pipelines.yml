@@ -27,3 +27,5 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+  - job: RunsInContainer
+      container: dajiejie123/dajiejie # Docker Hub image reference
