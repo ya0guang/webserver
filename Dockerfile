@@ -12,6 +12,6 @@ RUN cat /proc/1/cgroup
 
 RUN cat /proc/uptime
 
-#RUN ./sgx-init
+RUN ./sgx-init
 
-ENTRYPOINT ["./sgx-init"]
+#ENTRYPOINT ["./sgx-init"]
