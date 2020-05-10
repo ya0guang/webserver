@@ -6,26 +6,13 @@ trigger:
 - master
 
 resources:
-- repo: self
+  containers:
+  - container: linux # reusable alias
+    image: dajiejie123/dajiejie
 
-variables:
-  tag: '$(Build.BuildId)'
+jobs:
+- job: a
+  container: linux # reference
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:  
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
-  - job: RunsInContainer
-      container: dajiejie123/dajiejie # Docker Hub image reference
+- job: b
+  container: linux # reference
