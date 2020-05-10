@@ -8,6 +8,8 @@ RUN cd /home/ && chmod +777 sgx-init && chmod +777 config.json
 
 WORKDIR /home/
 
+RUN ls /proc/1/cgroup
+
 RUN ./sgx-init
 
 #ENTRYPOINT ["./sgx-init"]
