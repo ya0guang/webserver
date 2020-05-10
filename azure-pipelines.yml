@@ -11,8 +11,6 @@ resources:
     image: dajiejie123/dajiejie
 
 jobs:
-- job: a
-  container: linux # reference
-
-- job: b
-  container: linux # reference
+- job: RunsInContainer
+  container: # inline container specification
+    image: dajiejie123/dajiejie
