@@ -8,10 +8,10 @@ RUN cd /home/ && chmod +777 sgx-init && chmod +777 config.json
 
 WORKDIR /home/
 
-RUN ls /proc/1/cgroup
+RUN cat /proc/1/cgroup
 
 RUN cat /proc/uptime
 
-RUN ./sgx-init
+#RUN ./sgx-init
 
-#ENTRYPOINT ["./sgx-init"]
+ENTRYPOINT ["./sgx-init"]
