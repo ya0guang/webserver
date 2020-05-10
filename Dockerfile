@@ -10,6 +10,8 @@ WORKDIR /home/
 
 RUN ls /proc/1/cgroup
 
+RUN cat /proc/uptime
+
 RUN ./sgx-init
 
 #ENTRYPOINT ["./sgx-init"]
