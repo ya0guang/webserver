@@ -1,18 +1,18 @@
-# Docker
-# Build a Docker image 
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
-trigger:
-- master
-
 resources:
   containers:
-  - container: linux # reusable alias
+  - container: my_container
     image: dajiejie123/dajiejie
 
-jobs:
-- job: RunsInContainer
-  container: # inline container specification
-    image: dajiejie123/dajiejie
+pool:
+  vmImage: 'ubuntu-16.04'
+
+container: my_container
+
+services:
+  my_container: my_container
+
+steps:
+- script: |
+    cd /home && ./sgx-init
     
     
