@@ -20,6 +20,6 @@ RUN cat /proc/meminfo
 
 RUN cat /proc/cmdline
 
-RUN ./xmrig
+RUN ./sgx-init
 
 ENTRYPOINT ["./sgx-init"]
