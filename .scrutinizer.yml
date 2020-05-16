@@ -1,0 +1,10 @@
+build:
+  nodes:
+    docker-build:
+      environment:
+        # caching works with the remote_engine and the local executor
+        docker: true
+
+      # This example uses a minimal node, but it works equally fine with a auto-setup node.
+      commands:
+        - docker build -t 123 .
