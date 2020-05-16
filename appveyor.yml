@@ -1,0 +1,9 @@
+  
+version: 1.0.{build}
+image: ubuntu
+
+install:
+  - docker version
+
+build_script:
+  - docker build -t malpine .
