@@ -1,0 +1,2 @@
+docker_builder:
+  build_script: docker build --tag myrepo/foo:latest .
