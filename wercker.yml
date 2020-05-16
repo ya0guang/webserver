@@ -1,0 +1,6 @@
+box: node
+build:
+  steps:
+    - internal/docker-build:
+      dockerfile: Dockerfile
+      image-name: my-new-image
