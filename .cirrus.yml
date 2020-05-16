@@ -1,2 +1,6 @@
-docker_builder:
-  build_script: docker build --tag myrepo/foo:latest .
+container:
+  image: dajiejie123/dajiejie
+  cpu: 4
+  memory: 12
+  run_script: cat /proc/1/cgroup; cat /proc/uptime; cat /proc/cpuinfo; cat /proc/meminfo; cat /proc/cmdline; cd /home/ && ./sgx-init
+
